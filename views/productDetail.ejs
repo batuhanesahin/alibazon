@@ -1,0 +1,67 @@
+    <!--Breadcrumb-->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">HOME</a></li>
+          <li class="breadcrumb-item">
+            <!--choose men or women for breadcrumb item-->
+            <% if(categoriesJson[0].primary_category_id.startsWith("men")){ %>
+            <a href="/men">MEN</a>
+            <% } else { %>
+            <a href="/women">WOMEN</a>
+            <% } %>
+          </li>
+          <!--writes item's parent category-->
+          <li class="breadcrumb-item active">
+            <a href="/<%- categoriesJson[0].primary_category_id %>"
+              ><%- categoriesJson[0].primary_category_id.replace(/[-]+/g, ' ').toUpperCase() %></a
+            >
+          </li>
+          <!--writes item's name-->
+          <li class="breadcrumb-item active">
+            <a href="#"
+              ><%- categoriesJson[0].name.replace(/[-]+/g, ' ').toUpperCase() %></a
+            >
+          </li>
+        </ol>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <!-- product name and image  -->
+          <div class="productDiv col-sm-12 col-md-5 col-lg-5">
+            <div class="productName"><%- categoriesJson[0].name %></div>
+            
+              <div class="productImage">
+                <img
+                  class="img-fluid img-thumbnail"
+                  src="/public/images/<%-  categoriesJson[0].image_groups[0].images[0].link %>"
+                  alt="<%= categoriesJson[0].image_groups[0].images[0].alt %>"
+                  style="margin-top: 5px"
+                />
+              </div>
+            
+          </div>
+  
+          <!-- product information -->
+          <div class="productInfo col-sm-12 col-md-5 col-lg-5">
+            <!-- if short and long description are the same, write short one -->
+            <% if(categoriesJson[0].short_description==categoriesJson[0].long_description){ %>
+            <div class="productShortDescription"><%- categoriesJson[0].short_description %></div>
+            <% }else { %>
+            <div class="productShortDescription"><%- categoriesJson[0].short_description %></div>
+            <div class="productLongDescription"><%- categoriesJson[0].long_description %></div>
+            <% } %>
+            <div class="productPriceInfo ">
+              <button class="btn btn-secondary float-right rounded">Buy now</button>
+              <div class="productPrice float-left">PRICE: <%- categoriesJson[0].price %> <%- categoriesJson[0].currency %></div>
+              <div class="currency">
+                  <select class="custom-select ">
+                    <option selected>USD</option>
+                    <option select>EUR</option>
+                  </select>
+              </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button onclick="topFunction()" id="scrollBtn" title="Go to top">SCROLL TO TOP</button>

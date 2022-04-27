@@ -1,0 +1,37 @@
+<!--Breadcrumb-->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active"><a href="/">HOME</a></li>
+  </ol>
+</nav>
+<!--Men's Categories-->
+<div class="mainContainer">
+  <div>
+    <!--loop for each men category-->
+    <% mainArray.forEach(function(categories) { %>
+    <div>
+      <!-- condition for men's categories -->
+      <% if(categories.id.startsWith("men")){ %>
+      <h3 style="color: black"></h3>
+      <div>
+        <a title="<%= categories.page_title %>">
+          <img class="" id="genderImg" src="/public/images/categories/man-fashion-banner.jpg" alt="<%= categories.name %>" />
+        </a>
+      </div>
+      <!-- condition for women's categories -->
+      <% } else { %>
+      <h3 style="color: crimson"></h3>
+      <a title="<%= categories.page_title %>">
+        <img id="genderImg" src="/public/images/categories/ftw-womens-clothing-banner-2020.jpg" alt="<%= categories.name %>" />
+      </a>
+      <% } %>
+      <!-- category description and button -->
+      <h6><%= categories.page_description %></h6>
+      <a href="/<%= categories.id.replace(/[s]+/g, '') %>" style="margin-bottom: 30px" class="btn btn-secondary"
+        >View Categories</a
+      >
+      <% }) %>
+    </div>
+  </div>
+</div>
+<button onclick="topFunction()" id="scrollBtn" title="Go to top">SCROLL TO TOP</button>

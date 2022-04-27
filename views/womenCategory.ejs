@@ -1,0 +1,121 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">
+        <a href="/women">Women</a>
+      </li>
+    </ol>
+  </nav>
+
+<div class="mainContainer">
+    <div class="categoryHeader">
+      <h3><%= womensCategories[1].name.toUpperCase() %></h3>
+      <a title="<%= womensCategories[1].page_title %>">
+        <img src="public/images/<%-  womensCategories[1].image %>" alt="<%= womensCategories[1].name %>" />
+      </a>
+      <h6><%= womensCategories[1].page_description %></h6>
+    </div>
+  
+    <% womensClothing.forEach(function(categories) { %>
+    <% if (categories.image!="categories/category_404.png"){ %>
+    <div>
+    
+      <h3><%= categories.name %></h3>
+      <a title="<%= categories.page_title %>">
+        <img src="public/images/<%-  categories.image %>" alt="<%= categories.name %>" />
+      </a>
+      <% } else { %>
+      <h3><%= categories.name %></h3>
+      <a title="<%= categories.page_title %>">
+        <img src="/public/images/categories/womens-fashion.jpg" alt="<%= categories.name %>" />
+      </a>
+      <% } %>
+
+      <h6><%= categories.page_description %></h6>
+      <a href="/<%- categories.id %>" style="margin-bottom: 25px" class="btn btn-secondary">View Products</a>
+      <% }) %>
+    </div>
+  
+    <div class="separate"></div>
+  
+    <div class="categoryHeader">
+      <h3><%= womensCategories[2].name.toUpperCase() %></h3>
+      <a title="<%= womensCategories[2].page_title %>">
+        <% if (womensCategories[2].image!="categories/category_404.png"){ %>
+        <img src="public/images/<%-  womensCategories[2].image %>" alt="<%= womensCategories[2].name %>" />
+        <% } else { %>
+        <img src="/public/images/categories/womens-fashion.jpg" alt="<%= mensCategories[2].name %>" />
+        <% } %>
+      </a>
+      <h6><%= womensCategories[2].page_description %></h6>
+    </div>
+    <div>
+  
+      <% womensAccessories.forEach(function(categories) { %>
+      
+      <% if (categories.image!="categories/category_404.png"){ %>
+      <div>
+        <!-- category name and image-->
+        <h3><%= categories.name %></h3>
+        <a title="<%= categories.page_title %>">
+          <img src="public/images/<%-  categories.image %>" alt="<%= categories.name %>" />
+        </a>
+        <!--condition for categories that do not contain images-->
+        <% } else { %>
+        <h3><%= categories.name %></h3>
+        <a title="<%= categories.page_title %>">
+          <img src="/public/images/categories/womens-fashion.jpg" alt="<%= categories.name %>" />
+        </a>
+        <% } %>
+        <!--page description and button-->
+        <h6><%= categories.page_description %></h6>
+        <a href="/<%- categories.id %>" style="margin-bottom: 25px" class="btn btn-secondary">View Products</a>
+        <% }) %>
+      </div>
+    </div>
+  
+    <div class="separate"></div>
+  
+    <!-- WOMEN'S JEWELRY CATEGORIES-->
+  
+    <!-- Women's Accessories Header-->
+    <div class="categoryHeader">
+      <h3><%= womensCategories[0].name.toUpperCase() %></h3>
+  
+      <a title="<%= womensCategories[0].page_title %>">
+        <% if (womensCategories[0].image!="categories/category_404.png"){ %>
+        <img src="public/images/<%-  womensCategories[0].image %>" alt="<%= womensCategories[0].name %>" />
+        <% } else { %>
+        <img src="/public/images/categories/womens-fashion.jpg" />
+        <% } %>
+      </a>
+      <h6><%= womensCategories[0].page_description %></h6>
+    </div>
+    <div>
+      <!--loop for each women category-->
+      <% womensJewelry.forEach(function(categories) { %>
+      <!--condition for categories containing images.-->
+      <% if (categories.image!="categories/category_404.png"){ %>
+      <div>
+        <!-- category name and image-->
+        <h3><%= categories.name %></h3>
+        <a title="<%= categories.page_title %>">
+          <img src="public/images/<%-  categories.image %>" alt="<%= categories.name %>" />
+        </a>
+        <!--condition for categories that do not contain images-->
+        <% } else { %>
+        <h3><%= categories.name %></h3>
+        <a title="<%= categories.page_title %>">
+          <img src="/public/images/categories/womens-fashion.jpg" alt="<%= categories.name %>" />
+        </a>
+        <% } %>
+        <!--page description and button-->
+        <h6><%= categories.page_description %></h6>
+        <a href="/<%- categories.id %>" style="margin-bottom: 25px" class="btn btn-secondary">View Products</a>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+  
+
+    <button onclick="topFunction()" id="scrollBtn" title="Go to top">SCROLL TO TOP</button>

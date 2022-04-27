@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <!-- loop for each product -->
+    <% Array.prototype.forEach.call(categoriesJson, categories => { %>
+    <!-- product name and image  -->
+    <div class="productDiv col-sm-12 col-md-3 col-lg-3">
+      <div class="productName"><%- categories.name %></div>
+      <a href="/item/<%- categories.id %>">
+        <div class="productImageContainer">
+          <img
+            class="img-fluid img-thumbnail"
+            src="public/images/<%-  categories.image_groups[0].images[0].link %>"
+            alt="<%= categories.image_groups[0].images[0].alt %>"
+            style="margin-top: 5px"
+          />
+        </div>
+      </a>
+    </div>
+
+    <!-- product information -->
+    <div class="productInfo col-sm-12 col-md-3 col-lg-3">
+      <div class="productShortDescription">
+        <%- categories.short_description %>
+      </div>
+      <div class="priceInfo">
+        <a
+          href="/item/<%- categories.id %>"
+          class="btn btn-secondary float-right"
+          role="button"
+          >More Info</a
+        >
+        <div class="price">PRICE: <%- categories.price %></div>
+        <div class="currency"><%- categories.currency %></div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+<!-- button to return to top of the page-->
+<button onclick="topFunction()" id="scrollBtn" title="Go to top">
+  SCROLL TO TOP
+</button>
