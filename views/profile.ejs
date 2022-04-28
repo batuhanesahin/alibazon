@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <div class="container">
-        <div class="row">
-          <!-- username and email  -->
-          <div class="productDiv col-sm-12 col-md-5 col-lg-5">
-            <div class="name"><%= user %></div>
-            
-              <div class="E-mail">
-                <div class="email"<%- user %>> </div>
-              </div>
-            
-          </div>
-      <p><button>Contact</button></p>
+  <body>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">
+          <a href="/auth/profile">Profile</a>
+        </li>
+      </ol>
+    </nav>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <div class="container">
+      <div class="row">
+        <!-- username and email  -->
+        <div class="productDiv col-sm-3 col-md-2 col-lg-2"></div>
+
+        <h4>WELCOME </h4> &nbsp;&nbsp;&nbsp;
+        <div class="name"><%= user %></div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
+<button onclick="topFunction()" id="scrollBtn" title="Go to top">SCROLL TO TOP</button>

@@ -7,13 +7,14 @@ module.exports.search = async function (req, res) {
 
   var productarray = [];
 
-  for (var i = 1; i < 26; i++) {
-    var queryParams = new URLSearchParams({
-      page: i,
-      secretKey: process.env.SECRET_KEY,
-    }).toString();
-    var catagoryRequestUri = catURL + "?" + queryParams;
-
+  let i = 1;
+  do {
+    i++
+     var queryParams = new URLSearchParams({
+       page: i,
+       secretKey: process.env.SECRET_KEY,
+     }).toString();
+     var catagoryRequestUri = catURL + "?" + queryParams;
     let categoriesJson;
     try {
       const categoriesResponse = await fetch(catagoryRequestUri, {
@@ -35,7 +36,7 @@ module.exports.search = async function (req, res) {
       console.error(e);
       return;
     }
-  }
+  } while(i<26)
   res.render("search", {
     productarray,
   });

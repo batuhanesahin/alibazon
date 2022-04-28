@@ -65,9 +65,11 @@
           <!--condition for categories that do not contain images-->
           <% } else { %>
           <h3><%= categories.name %></h3>
+          <div class="mens">
           <a title="<%= categories.page_title %>">
             <img src="/public/images/categories/mens-fashion.jpg" alt="<%= categories.name %>" />
           </a>
+        </div>
           <% } %>
           <!--page description and button-->
           <h6><%= categories.page_description %></h6>
