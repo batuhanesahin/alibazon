@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-module.exports.submit = async function (req, res) {
+module.exports.search = async function (req, res) {
   const username = req.body.username.toLowerCase();
   const mainURL = process.env.OSF_URL;
   const catURL = mainURL + "/products/product_search";

@@ -21,7 +21,6 @@ module.exports.index = async function (req, res) {
     res.render("errorPage");
     return;
   }
-
   if (categoriesJson.error) {
     res.render("errorPage");
   }

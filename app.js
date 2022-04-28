@@ -9,7 +9,7 @@ require('dotenv').config()
 Sentry = require("@sentry/node");
 Tracing = require("@sentry/tracing");
 
-//Sentry Error Tracking
+// Sentry Error Tracking
 Sentry.init({
 dsn: "https://a44fd4dab3824bc89398da3fae055f2e@o1187696.ingest.sentry.io/6307538",
 integrations: [
@@ -19,9 +19,6 @@ integrations: [
   tracesSampleRate: 1.0,
 });
  
-app.get("/", function rootHandler(req, res) {
-  res.end("Hello world!");
-});
 app.use(Sentry.Handlers.errorHandler());
 app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
@@ -60,6 +57,7 @@ app.get("/logout", (req,res) => {
     res.redirect("/")
   }
 })
+
 
 require("./routes/routeManager")(app);
 

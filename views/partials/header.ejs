@@ -2,7 +2,7 @@
   <a class="navbar-brand" href="/">
     <img
       alt="Logo"
-      src="/public/images/AlibazonLogo.png"
+      src="/public/images/other/AlibazonLogo.png"
       style="width: 70px; height: 80px; border: none"
     />
   </a>
@@ -59,13 +59,15 @@
           <a class="nav-link" href="/logout">Logout</a>
         </li>
       <% } %>
+      
     </ul>
 
-
-
     <form method="POST" action="/submit-form">
-      <input type="text" name="username" />
-      <input type="submit" />
-    </form>
+      <input type="text" name="username"  placeholder="Search..."    aria-label="Search through site content">
+      <button>Search</button>/>
+
+
+      
+      <input type="submit" name = /> </form>
   </div>
 </nav>
