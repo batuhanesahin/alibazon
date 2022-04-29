@@ -36,7 +36,7 @@ module.exports.search = async function (req, res) {
       console.error(e);
       return;
     }
-  } while(i<26)
+  } while(i<3)
   res.render("search", {
     productarray,
   });
