@@ -32,18 +32,22 @@ module.exports.women = async function(req, res) {
         womensClothing = [];
         womensJewelry = [];
         womensCategories = [];
-        
+        //loop for get category elements
         categoriesJson.forEach((element) => {
+          //GET WOMEN'S ACCESSORIES
           if (element.parent_category_id.startsWith("womens-accessories")) {
              womensAccessories.push(element)
+          //sort by name
             womensAccessories.sort(function (a, b) {
         return a.name.localeCompare(b.name);
       });
+          //GET WOMEN'S CLOTHING
          } else if (element.parent_category_id.startsWith("womens-clothing")) {
           womensClothing.push(element);
           womensClothing.sort(function (a, b) {
           return a.name.localeCompare(b.name);
       });
+      //GET WOMEN'S JEWELRY
     } else if (element.parent_category_id.startsWith("womens-jewelry")) {
         womensJewelry.push(element);
         //sort by name
@@ -51,7 +55,7 @@ module.exports.women = async function(req, res) {
           return a.name.localeCompare(b.name);
         });
       }
-      
+      //GET PARENT CATEGORY
       if (element.parent_category_id == "womens") {
         womensCategories.push(element);
         womensCategories.sort(function (b, a) {

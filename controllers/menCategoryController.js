@@ -32,19 +32,23 @@ module.exports.men = async function(req, res) {
         mensClothing = [];
         mensCategories = [];
 
+          //loop for get category elements
         categoriesJson.forEach((element) => {
+           //GET MEN'S ACCESSORIES
           if (element.parent_category_id.startsWith("mens-accessories")) {
              mensAccessories.push(element)
             mensAccessories.sort(function (a, b) {
         return a.name.localeCompare(b.name);
       });
+          //GET MEN'S CLOTHING
          } else if (element.parent_category_id.startsWith("mens-clothing")) {
           mensClothing.push(element);
+          //sort by name
           mensClothing.sort(function (a, b) {
           return a.name.localeCompare(b.name);
       });
       }
-  
+          //GET PARENT CATEGORY
       if (element.parent_category_id == "mens") {
         mensCategories.push(element);
         mensCategories.sort(function (b, a) {
