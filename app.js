@@ -5,10 +5,11 @@ path = require("path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+
 require('dotenv').config()
+
 Sentry = require("@sentry/node");
 Tracing = require("@sentry/tracing");
-
 // Sentry Error Tracking
 Sentry.init({
 dsn: "https://a44fd4dab3824bc89398da3fae055f2e@o1187696.ingest.sentry.io/6307538",
@@ -60,6 +61,5 @@ app.get("/logout", (req,res) => {
 
 
 require("./routes/routeManager")(app);
-
 
 app.listen(process.env.PORT || 3000);
