@@ -24,7 +24,7 @@ module.exports.search = async function (req, res) {
       //convert response to json format
       categoriesJson = await categoriesResponse.json();
 
-      categoriesJson.forEach((elements) => {
+      Array.prototype.forEach.call(categoriesJson, (elements) => {
         var element = elements.name.toLowerCase();
         if (element.includes(username)) {
           productarray.push(elements);
