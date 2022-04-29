@@ -9,12 +9,12 @@ module.exports.search = async function (req, res) {
 
   let i = 1;
   do {
-    i++
-     var queryParams = new URLSearchParams({
-       page: i,
-       secretKey: process.env.SECRET_KEY,
-     }).toString();
-     var catagoryRequestUri = catURL + "?" + queryParams;
+    i++;
+    var queryParams = new URLSearchParams({
+      page: i,
+      secretKey: process.env.SECRET_KEY,
+    }).toString();
+    var catagoryRequestUri = catURL + "?" + queryParams;
     let categoriesJson;
     try {
       const categoriesResponse = await fetch(catagoryRequestUri, {
@@ -36,7 +36,7 @@ module.exports.search = async function (req, res) {
       console.error(e);
       return;
     }
-  } while(i<3)
+  } while (i < 26);
   res.render("search", {
     productarray,
   });
